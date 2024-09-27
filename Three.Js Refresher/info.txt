@@ -1,0 +1,13 @@
+* What is WebGL?
+    -> WebGL is an API which will simply make the application able to interat with the graphics card in order to render things on the screen.
+
+* WebGL -> JS -> cpu
+    |
+    -----> OpenGL -> gpu
+
+* threeJS 
+    1. Scene,
+    2. Objects/Mesh
+    3. Camera
+    4. Renderer
+
