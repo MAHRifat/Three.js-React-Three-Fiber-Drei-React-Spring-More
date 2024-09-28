@@ -11,3 +11,5 @@
     3. Camera
     4. Renderer
 
+* object3D()
+    properties -> .position, .scale, .rotation

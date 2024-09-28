@@ -9,8 +9,8 @@ body{
 }
 
 .draw{
-    position: fixed;
+    /* position: fixed;
     top: 0px;
-    left: 200px;
+    left: 200px; */
     outline: none;
 }
