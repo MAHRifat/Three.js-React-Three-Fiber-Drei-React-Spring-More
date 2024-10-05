@@ -9,8 +9,23 @@ const scene = new THREE.Scene();
 //Mesh
 
 
-const geometry =new THREE.BoxGeometry(1,1,1);
-const material = new THREE.MeshBasicMaterial({color: "green"});
+// const geometry =new THREE.BoxBufferGeometry(1,1,1,2,2,2);
+const geometry =new THREE.PlaneBufferGeometry(1,1,1,2,2,2);
+    // custom buffer geometry
+    // const geometry = new THREE.BufferGeometry();
+    // const verticesArray = new Float32Array(
+    //     [
+    //         0,0,0,
+    //         0,1,0,
+    //         1,0,0
+    //     ]
+    // );
+
+    // const positionAttrubute = new THREE.BufferAttribute(verticesArray,3);
+    // geometry.setAttribute('position', positionAttrubute);
+
+    console.log(geometry);
+const material = new THREE.MeshBasicMaterial({color: "green", wireframe: true});
 const mesh = new THREE.Mesh(geometry, material);
 
 scene.add(mesh);
@@ -47,7 +62,7 @@ const animate = ()=> {
     
     // Update rotation on X axis
     mesh.rotation.x = elapsedTime * Math.PI;
-    mesh.rotation.y = elapsedTime * Math.PI;
+    // mesh.rotation.y = elapsedTime * Math.PI;
 
     // Renderer
     renderer.render(scene, camera);    // draw what the camera inside the scene captured
