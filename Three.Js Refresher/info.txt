@@ -13,3 +13,14 @@
 
 * object3D()
     properties -> .position, .scale, .rotation
+
+
+* Webpack
+    -> webpack is an open-source JavaScript module bundler.
+    -> minify js, css
+
+    start process:
+        -> npm init -y
+        -> copy all from starter
+        -> npm install
+        -> npm run dev
