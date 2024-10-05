@@ -8,6 +8,12 @@ import {
 //Scene
 const scene = new THREE.Scene();
 
+// Lights
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const pointLight = new THREE.PointLight(0xffffff, .5);
+pointLight.position.set(2,2,2);
+scene.add(ambientLight, pointLight);
+
 // loadingManager -> use loading manager for texture when we upload the website it will reload first
 const loadingManager = new THREE.LoadingManager();
 loadingManager.onStart = ()=>{
@@ -26,7 +32,23 @@ loadingManager.onError = ()=>{
 // textureLoader
 const texture = new THREE.TextureLoader(loadingManager);
 const colorTexture = texture.load("/texture/color.jpg");
-console.log(texture);
+const matcapTexture = texture.load("/texture/mat2.png");
+const bumpTexture = texture.load("/texture/bump.jpg");
+const displacementTexture = texture.load("/texture/displacementMap.jpg");
+
+
+//CubeTextureLoader
+const CubeTextureLoader = new THREE.CubeTextureLoader();
+const envTexture = CubeTextureLoader.load([
+  "/env/px.png",
+  "/env/py.png",
+  "/env/pz.png",
+  "/env/nx.png",
+  "/env/ny.png",
+  "/env/nz.png",
+]);
+scene.background = envTexture;
+
 
 //Resizing
 window.addEventListener("resize", () => {
@@ -44,9 +66,40 @@ window.addEventListener("resize", () => {
 });
 
 //Mesh
-const geometry = new THREE.PlaneBufferGeometry(1, 1);
-console.log(geometry);
-const material = new THREE.MeshBasicMaterial({ map: colorTexture });
+// const geometry = new THREE.PlaneBufferGeometry(1, 1, 64,64);
+// console.log(geometry);
+// const material = new THREE.MeshBasicMaterial();
+// material.map = colorTexture;
+// material.wireframe = true;
+// material.color = new THREE.Color("rgb(255,0,0)");
+// material.transparent = true;
+// material.opacity = .3;
+// material.side = THREE.DoubleSide;
+// material.visible = false;
+
+// const geometry = new THREE.TorusBufferGeometry(.3,.2,32,32);
+// const material = new THREE.MeshMatcapMaterial();
+// material.matcap = matcapTexture;
+
+// const material = new THREE.MeshLambertMaterial();
+
+// const material = new THREE.MeshPhongMaterial();
+// material.shininess = 300;
+// material.specular = new THREE.Color("green");
+
+// const material = new THREE.MeshToonMaterial();
+const geometry = new THREE.SphereBufferGeometry(.5,32,32);
+const material = new THREE.MeshStandardMaterial();
+material.metalness = .9;
+material.roughness = .0001;
+// material.map = colorTexture;
+// material.bumpMap = bumpTexture;
+// material.displacementMap = displacementTexture;
+material.envMap = envTexture;
+
+
+
+
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
