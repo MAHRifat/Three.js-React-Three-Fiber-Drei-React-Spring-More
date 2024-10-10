@@ -3,6 +3,7 @@ import {Canvas} from '@react-three/fiber'
 import Scene from './Scene'
 import Scene2 from './Scene2'
 import { Tube } from '@react-three/drei';
+import UseLoader from './UseLoader';
 
 function App() {
 
@@ -13,26 +14,8 @@ function App() {
 
   return (
     <>
-      <Canvas 
-      gl={{
-        antialias: true,
-        alpha: true
-      }}
-      orthographic
-      camera={
-        {
-          fov: 45,
-          near: .1,
-          far: 80,
-          zoom: 100,
-          position: [2,2,6]
-        }
-      }
-      onCreated={creatingCanvasHandler}
-      >
-        {/* <axesHelper args={[3]}/>
-        <gridHelper args={[20,20,"red","orange"]}/> */}
-        <Scene2/>
+      <Canvas>
+        <UseLoader/>
       </Canvas>
     </>
   )
