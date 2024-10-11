@@ -1,0 +1,1 @@
+convert gltf into jsx by using -> open terminal in model folder then type -> npx gltfjsx [filename]
