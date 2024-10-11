@@ -1,6 +1,7 @@
 import {OrbitControls} from '@react-three/drei';
 import Custom from './Custom';
 import { DoubleSide } from 'three';
+import Particles from './Particles';
 const Scene2 = ()=> {
     return(
         <>
@@ -9,11 +10,12 @@ const Scene2 = ()=> {
             <boxGeometry/>
             <meshBasicMaterial color={"purple"}/>
             </mesh> */}
-            <Custom/>
+            {/* <Custom/>
             <mesh>
             <boxGeometry/>
             <meshBasicMaterial color={"purple"} />
-            </mesh>
+            </mesh> */}
+            <Particles/>
         </>
     );
 };

@@ -15,7 +15,8 @@ function App() {
   return (
     <>
       <Canvas>
-        <UseLoader/>
+        {/* <UseLoader/> */}
+        <Scene2/>
       </Canvas>
     </>
   )
